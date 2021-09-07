@@ -12,14 +12,13 @@ def getfft(bandwidth=10,start=-2,stop=2,ts=(1/100)):
     hf_abs=np.abs(hf)
     hf_abs_sorted=np.fft.fftshift(hf_abs)
     return freq_axis,rec_signal,hf_abs_sorted
-f1=5
-f2=20
+fm=20 # 20Hz is the Bandwidth chosen for the sinc pulse (in freq domain)
 fs=100
 ts=1/fs
 start=-1
 stop=1
 t=np.arange(start,stop,ts)
-m=np.sin(2*np.pi*f1*t)+np.sin(2*np.pi*f2*t)
+m=2*fm*np.sinc(2*fm*t)#np.sin(2*np.pi*f1*t)+np.sin(2*np.pi*f2*t)
 bw=[10,15,20,50]
 freq_axis=[[] for x in bw]
 hf_abs=[[] for x in bw]

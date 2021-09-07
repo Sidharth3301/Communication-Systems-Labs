@@ -13,7 +13,7 @@ def getfft(bandwidth=10,start=-2,stop=2,ts=(1/100)):
     hf_abs_sorted=np.fft.fftshift(hf_abs)
     return freq_axis,hf_abs_sorted
 f1=5
-fm=20
+fm=20   #used 20Hz sinc signal, whose bandwidth is also 20 Hz
 fs=100
 ts=1/fs
 start=-1
